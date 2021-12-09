@@ -6,6 +6,8 @@ from profiles_api import views
 
 router = DefaultRouter()
 router.register('hello-viewset', views.HelloViewSet, base_name='hello-viewset')
+router.register('profile', views.UserProfileViewSet)
+# no need for base_name since we have a queryset in UserProfileViewSet
 
 # maps the url to django views
 urlpatterns = [
