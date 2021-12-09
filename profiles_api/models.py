@@ -11,7 +11,7 @@ class UserProfileManager(BaseUserManager):
             raise ValueError('Users must have an email address')
         # normalizing an email takes the email provider and lowers it. BP
         email = self.normalize_email(email)
-        user = self.models(email=email, name=name)
+        user = self.model(email=email, name=name)
         user.set_password(password)  # to encrypt the set_password
         user.save(using=self._db)
 
