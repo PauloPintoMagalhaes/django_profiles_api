@@ -8,9 +8,11 @@ router = DefaultRouter()
 router.register('hello-viewset', views.HelloViewSet, base_name='hello-viewset')
 router.register('profile', views.UserProfileViewSet)
 # no need for base_name since we have a queryset in UserProfileViewSet
+router.register('feed', views.UserProfileFeedViewSet)
 
 # maps the url to django views
 urlpatterns = [
     path('hello-view/', views.HelloApiView.as_view()),
+    path('login/', views.UserLoginApiView.as_view()),
     path('', include(router.urls)),
 ]
